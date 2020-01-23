@@ -6,10 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MetaConfig, MetaUIRulesModule } from '@ngx-metaui/rules';
 import * as userRules from './rules/user-rules';
 import { PrimeNgRulesModule } from '@ngx-metaui/primeng-rules';
+import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TodoDetailComponent
   ],
   imports: [
     BrowserModule,
