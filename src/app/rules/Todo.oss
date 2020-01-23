@@ -5,20 +5,28 @@
 */
 class=Todo {
 
-    field=uniqueName {
+    field=id {
            label:"Id";
        }
 
-       field=name {
-           label:"Name";
+       field=title {
+           label:"Title";
        }
 
-       field=description {
+       field=text {
            trait:longtext;
        }
 
+       field=createdAt {
+           label:"Created at";
+       }
+
+       field=isDone {
+           label:"Is done?";
+       }
+
        zNone => *;
-       zLeft => uniqueName => name => description => created;
+       zLeft => title => text => createdAt => isDone;
 }
 
 /*
@@ -28,12 +36,12 @@ class=Todo {
 class=Todo {
    operation=(edit, create) {
       zNone => *;
-      zLeft => name => description;
+      zLeft => title => text => isDone;
    }
 
   operation=(create) {
       zNone => *;
-      zLeft => name => description => created;
+      zLeft => title => text;
    }
 
 }

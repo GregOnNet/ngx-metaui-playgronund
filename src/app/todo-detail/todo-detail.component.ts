@@ -1,7 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Todo} from '../model/todo' ;
-
-
+import { Component, OnInit } from '@angular/core';
+import { Todo } from '../model/todo';
 
 @Component({
   selector: 'app-todo-detail',
@@ -9,17 +7,12 @@ import {Todo} from '../model/todo' ;
   styleUrls: ['./todo-detail.component.scss']
 })
 export class TodoDetailComponent implements OnInit {
-
-  object: Todo;
+  todo: Todo;
   operation = 'view';
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit(): void {
-
-    this.object = new Todo('R0001', 'Frank Kolar',
-    'This is my user record', new Date());
+    this.todo = new Todo('1', 'Buy 🥛', '2 litres', false, new Date());
   }
 }
-

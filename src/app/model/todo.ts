@@ -1,26 +1,25 @@
 import { Entity } from '@ngx-metaui/rules';
 
-/**
- * This is generated class
- */
 export class Todo implements Entity {
   constructor(
-    public uniqueName?: string,
-    public name?: string,
-    public description?: string,
-    public created?: Date
+    public id: string,
+    public title: string,
+    public text: string,
+    public isDone: boolean,
+    public createdAt: Date
   ) {}
 
   identity(): string {
-    return this.uniqueName;
+    return this.id;
   }
 
   getTypes(): any {
     return {
-      uniqueName: String,
-      name: String,
-      description: String,
-      created: Date
+      id: String,
+      title: String,
+      text: String,
+      isDone: Boolean,
+      createdAt: Date
     };
   }
 
@@ -32,6 +31,6 @@ export class Todo implements Entity {
   }
 
   toString(): string {
-    return this.name;
+    return this.title;
   }
 }

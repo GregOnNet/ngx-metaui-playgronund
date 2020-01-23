@@ -5,7 +5,7 @@
  *
  */
 /* tslint:disable */
-export const TodoRule = '/*     User rules.oss -- Meta-data rules. Generated file      Default definition */ class=Todo {      field=uniqueName {            label:"Id";        }         field=name {            label:"Name";        }         field=description {            trait:longtext;        }         zNone => *;        zLeft => uniqueName => name => description => created; }  /*   Sample definition for operations edit and create  */ class=Todo {    operation=(edit, create) {       zNone => *;       zLeft => name => description;    }    operation=(create) {       zNone => *;       zLeft => name => description => created;    }  } ';
+export const TodoRule = '/*     User rules.oss -- Meta-data rules. Generated file      Default definition */ class=Todo {      field=id {            label:"Id";        }         field=title {            label:"Title";        }         field=text {            trait:longtext;        }         field=createdAt {            label:"Created at";        }         field=isDone {            label:"Is done?";        }         zNone => *;        zLeft => title => text => createdAt => isDone; }  /*   Sample definition for operations edit and create  */ class=Todo {    operation=(edit, create) {       zNone => *;       zLeft => title => text => isDone;    }    operation=(create) {       zNone => *;       zLeft => title => text;    }  } ';
 /* tslint:disable */
 /**
  *  @formatter:on
