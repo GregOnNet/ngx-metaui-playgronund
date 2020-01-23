@@ -28,9 +28,21 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@ngx-metaui/primeng-rules/lib/resources/themes/_normalize.scss",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "node_modules/quill/dist/quill.core.css",
+              "node_modules/quill/dist/quill.snow.css",
+              "node_modules/@ngx-metaui/primeng-rules/lib/resources/fonts/sap-ariba-icon-fonts/sap-ariba-icon-fonts.css",
+              "node_modules/@ngx-metaui/primeng-rules/lib/resources/fonts/sap-icon-fonts/sap-icon-fonts.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/@ngx-metaui/primeng-rules/lib/resources/themes/ariba/theme.scss",
+              "node_modules/@ngx-metaui/primeng-rules/lib/resources/styles/aribaui.scss",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/quill/dist/quill.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -124,6 +136,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "meta-ui-playground"
 }
