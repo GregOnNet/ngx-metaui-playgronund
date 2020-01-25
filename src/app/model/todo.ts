@@ -22,7 +22,7 @@ type ModelPropertiesConstructor<T> = {
   [K in keyof T]: ConstructorConditional<T[K]>;
 };
 
-type EntityIntrospectable<T> = ModelPropertiesConstructor<ModelProperties<T>>;
+type EntityTypes<T> = ModelPropertiesConstructor<ModelProperties<T>>;
 
 export class Assignee {
   id: string;
@@ -44,7 +44,7 @@ export class Todo implements Entity {
     return this.id;
   }
 
-  getTypes(): EntityIntrospectable<Todo> {
+  getTypes(): EntityTypes<Todo> {
     return {
       id: String,
       title: String,
