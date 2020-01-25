@@ -24,7 +24,7 @@ type ModelPropertiesConstructor<T> = {
 
 type EntityIntrospectable<T> = ModelPropertiesConstructor<ModelProperties<T>>;
 
-class Assignee {
+export class Assignee {
   id: string;
 
   constructor() {}

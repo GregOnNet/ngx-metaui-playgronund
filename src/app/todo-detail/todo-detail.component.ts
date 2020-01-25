@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo } from '../model/todo';
+import { Assignee, Todo } from '../model/todo';
 
 @Component({
   selector: 'app-todo-detail',
@@ -13,6 +13,13 @@ export class TodoDetailComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.todo = new Todo('1', 'Buy 🥛', '2 litres', false, new Date());
+    this.todo = new Todo(
+      '1',
+      'Buy 🥛',
+      '2 litres',
+      false,
+      new Date(),
+      new Assignee()
+    );
   }
 }
