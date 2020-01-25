@@ -1,17 +1,34 @@
 import { Entity } from '@ngx-metaui/rules';
 
+export declare type ConstructorFor<T> = new (...args: any[]) => T;
+
+type ConstructorConditional<T> = T extends boolean
+  ? BooleanConstructor
+  : T extends string
+  ? StringConstructor
+  : T extends number
+  ? NumberConstructor
+  : T extends Date
+  ? DateConstructor
+  : ConstructorFor<T>;
+
 type ModelPropertyKeys<T> = {
   [K in keyof T]: T[K] extends Function ? never : K;
 }[keyof T];
 
 type ModelProperties<T> = Pick<T, ModelPropertyKeys<T>>;
 
-const typeOf = {
-  string: '',
-  number: 0,
-  boolean: true,
-  date: new Date()
+type ModelPropertiesConstructor<T> = {
+  [K in keyof T]: ConstructorConditional<T[K]>;
 };
+
+type EntityIntrospectable<T> = ModelPropertiesConstructor<ModelProperties<T>>;
+
+class Assignee {
+  id: string;
+
+  constructor() {}
+}
 
 export class Todo implements Entity {
   constructor(
@@ -19,20 +36,22 @@ export class Todo implements Entity {
     public title: string,
     public text: string,
     public isDone: boolean,
-    public createdAt: Date
+    public createdAt: Date,
+    public assignee: Assignee
   ) {}
 
   identity(): string {
     return this.id;
   }
 
-  getTypes(): ModelProperties<Todo> {
+  getTypes(): EntityIntrospectable<Todo> {
     return {
-      id: typeOf.string,
-      title: typeOf.string,
-      text: typeOf.string,
-      isDone: typeOf.boolean,
-      createdAt: typeOf.date
+      id: String,
+      title: String,
+      text: String,
+      isDone: Boolean,
+      createdAt: Date,
+      assignee: Assignee
     };
   }
   /**
