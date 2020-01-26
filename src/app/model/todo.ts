@@ -24,20 +24,13 @@ type ModelPropertiesConstructor<T> = {
 
 type EntityTypes<T> = ModelPropertiesConstructor<ModelProperties<T>>;
 
-export class Assignee {
-  id: string;
-
-  constructor() {}
-}
-
 export class Todo implements Entity {
   constructor(
     public id: string,
     public title: string,
     public text: string,
     public isDone: boolean,
-    public createdAt: Date,
-    public assignee: Assignee
+    public createdAt: Date
   ) {}
 
   identity(): string {
@@ -50,8 +43,7 @@ export class Todo implements Entity {
       title: String,
       text: String,
       isDone: Boolean,
-      createdAt: Date,
-      assignee: Assignee
+      createdAt: Date
     };
   }
   /**
