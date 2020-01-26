@@ -13,6 +13,6 @@ export class TodoDetailComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.todo = new Todo('1', 'Buy 🥛', '2 litres', false, new Date());
+    this.todo = new Todo('1', 'Buy 🥛', '2 litres', 56, false, new Date());
   }
 }

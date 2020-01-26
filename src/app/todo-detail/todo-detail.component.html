@@ -8,7 +8,11 @@
 
   <hr />
 
-  <m-context [object]="todo" [operation]="operation" layout="Inspect">
+  <m-context
+    [object]="todo"
+    [operation]="operation"
+    layout="InspectWithActions"
+  >
     <m-include-component></m-include-component>
   </m-context>
 </div>

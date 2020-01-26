@@ -1,32 +1,53 @@
-/*
-    User rules.oss -- Meta-data rules. Generated file
-
-    Default definition
-*/
 class=Todo {
+  field=id {
+    label: "Id";
+  }
 
-    field=id {
-           label:"Id";
-       }
+  field=title {
+    label: "Title";
+    trait: required;
+  }
 
-       field=title {
-           label:"Title";
-       }
+  field=text {
+    trait:longtext;
+  }
 
-       field=text {
-           trait:longtext;
-       }
+  field=urgency editable=false {
+    label: "Urgency";
+    component: TodoUrgentComponent;
+    bindings: {
+      priority: $value;
+    };
+  }
 
-       field=createdAt {
-           label:"Created at";
-       }
+  field=createdAt {
+    label: "Created at";
+  }
 
-       field=isDone {
-           label:"Is done?";
-       }
+  field=createdAt operation=create {
+    required: true;
+  }
 
-       zNone => *;
-       zLeft => title => text => createdAt => isDone;
+  field=isDone {
+    label: "Is done?";
+  }
+
+  zNone => *;
+  zLeft => title => text => urgency => createdAt => isDone;
+
+  @action=Save  {
+    label: "Save";
+    actionResults: ${alert("Record saved : " + object.title)};
+    visible: ${properties.get("editing")};
+    buttonStyle: info;
+  }
+
+  @action=Discard  {
+      label: "Discard Changes";
+      actionResults:${ alert("All cleared !") };
+      visible: ${properties.get("editing")};
+      buttonStyle:info;
+   }
 }
 
 /*
@@ -36,12 +57,12 @@ class=Todo {
 class=Todo {
    operation=(edit, create) {
       zNone => *;
-      zLeft => title => text => isDone;
+      zLeft => title => text => urgency => isDone;
    }
 
   operation=(create) {
       zNone => *;
-      zLeft => title => text;
+      zLeft => title => text => createdAt;
    }
 
 }

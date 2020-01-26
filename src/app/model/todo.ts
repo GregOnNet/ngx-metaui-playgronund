@@ -29,6 +29,7 @@ export class Todo implements Entity {
     public id: string,
     public title: string,
     public text: string,
+    public urgency: number,
     public isDone: boolean,
     public createdAt: Date
   ) {}
@@ -42,6 +43,7 @@ export class Todo implements Entity {
       id: String,
       title: String,
       text: String,
+      urgency: Number,
       isDone: Boolean,
       createdAt: Date
     };
