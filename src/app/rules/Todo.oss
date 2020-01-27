@@ -22,10 +22,10 @@ class=Todo {
 
   field=createdAt {
     label: "Created at";
-  }
 
-  field=createdAt operation=create {
-    required: true;
+    operation=create {
+      required: true;
+    }
   }
 
   field=isDone {
