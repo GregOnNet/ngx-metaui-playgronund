@@ -12,6 +12,10 @@ class=Todo {
     trait:longtext;
   }
 
+  @field=textLength {
+    value:${text.length};
+  }
+
   field=urgency editable=false {
     label: "Urgency";
     component: TodoUrgentComponent;
@@ -33,7 +37,7 @@ class=Todo {
   }
 
   zNone => *;
-  zLeft => title => text => urgency => createdAt => isDone;
+  zLeft => title => text => textLength => urgency => createdAt => isDone;
 
   @action=Save  {
     label: "Save";
